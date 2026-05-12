@@ -1,7 +1,11 @@
 import { name, publisher, version } from "../package.json"
 import { HostProvider } from "./hosts/host-provider"
 
-const prefix = name === "claude-dev" ? "cline" : name
+// We keep package.json's command IDs (cline.*) and view IDs (claude-dev.*)
+// untouched from upstream Cline so we don't have to churn ~100 source files
+// every rebrand. User-visible branding (displayName, command titles, walkthrough
+// text) is handled separately. These constants must match package.json verbatim.
+const prefix = "cline"
 
 /**
  * List of commands with the name of the extension they are registered under.
@@ -37,7 +41,8 @@ const ClineCommands = {
  * These should match the name + view IDs defined in package.json.
  */
 const ClineViewIds = {
-	Sidebar: name + ".SidebarProvider",
+	// Must match the view id declared in package.json contributes.views.
+	Sidebar: "claude-dev.SidebarProvider",
 }
 
 /**
