@@ -1,5 +1,6 @@
 import type { Boolean, EmptyRequest } from "@shared/proto/cline/common"
 import { useCallback, useEffect, useState } from "react"
+import { AppShell } from "./agent-tab/AppShell"
 import AccountView from "./components/account/AccountView"
 import ChatView from "./components/chat/ChatView"
 import ClineKanbanLaunchModal, { CLINE_KANBAN_MODAL_DISMISS_ID } from "./components/common/ClineKanbanLaunchModal"
@@ -102,7 +103,7 @@ const AppContent = () => {
 	}
 
 	return (
-		<div className="flex h-screen w-full flex-col">
+		<AppShell>
 			<ClineKanbanLaunchModal onClose={handleCloseKanbanModal} open={showKanbanModal} />
 			{showSettings && <SettingsView onDone={hideSettings} targetSection={settingsTargetSection} />}
 			{showHistory && <HistoryView onDone={hideHistory} />}
@@ -123,7 +124,7 @@ const AppContent = () => {
 				showAnnouncement={showAnnouncement}
 				showHistoryView={navigateToHistory}
 			/>
-		</div>
+		</AppShell>
 	)
 }
 

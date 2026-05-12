@@ -90,6 +90,15 @@ export default {
 				description: "var(--vscode-descriptionForeground)",
 				success: "var(--vscode-charts-green)",
 				warning: "var(--vscode-charts-yellow)",
+				// Agent Tab — cost-state palette. Maps budget consumption to a hue.
+				// Uses VS Code chart colors so it adapts to user's theme.
+				cost: {
+					low: "var(--vscode-charts-green)",
+					mid: "var(--vscode-charts-yellow)",
+					high: "var(--vscode-charts-orange)",
+					over: "var(--vscode-errorForeground)",
+					muted: "var(--vscode-descriptionForeground)",
+				},
 			},
 			fontSize: {
 				xl: "calc(2 * var(--vscode-font-size))",
