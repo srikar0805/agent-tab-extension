@@ -1,8 +1,8 @@
 {
-	"name": "claude-dev",
-	"displayName": "Cline",
-	"description": "Autonomous coding agent right in your IDE, capable of creating/editing files, running commands, using the browser, and more with your permission every step of the way.",
-	"version": "3.82.0",
+	"name": "agent-tab",
+	"displayName": "Agent Tab",
+	"description": "Cost-aware autonomous AI coding agent — live per-turn cost, pre-flight estimates, daily budget caps, and model-by-model price comparison. Built on Cline.",
+	"version": "0.1.0",
 	"icon": "assets/icons/icon.png",
 	"workspaces": [
 		".",
@@ -12,15 +12,15 @@
 		"vscode": "^1.84.0"
 	},
 	"author": {
-		"name": "Cline Bot Inc."
+		"name": "srikar0805"
 	},
 	"license": "Apache-2.0",
-	"publisher": "saoudrizwan",
+	"publisher": "srikar0805",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/cline/cline"
+		"url": "https://github.com/srikar0805/agent-tab-extension"
 	},
-	"homepage": "https://cline.bot",
+	"homepage": "https://github.com/srikar0805/agent-tab-extension#readme",
 	"categories": [
 		"AI",
 		"Chat",
@@ -30,18 +30,16 @@
 		"Testing"
 	],
 	"keywords": [
-		"cline",
+		"agent-tab",
+		"cost",
+		"budget",
 		"claude",
-		"dev",
-		"mcp",
+		"gpt",
 		"openrouter",
-		"coding",
-		"agent",
-		"autonomous",
-		"chatgpt",
-		"sonnet",
 		"ai",
-		"llama"
+		"coding-agent",
+		"cost-aware",
+		"token-tracking"
 	],
 	"activationEvents": [
 		"onLanguage",
@@ -63,21 +61,21 @@
 		"walkthroughs": [
 			{
 				"id": "ClineWalkthrough",
-				"title": "Meet Cline, your new coding partner",
-				"description": "Cline codes like a developer because it thinks like one. Here are 5 ways to put it to work:",
+				"title": "Meet Agent Tab — cost-aware AI coding",
+				"description": "Like Cline, but with the bill on the screen. Live per-turn cost, pre-flight estimates, daily budget caps.",
 				"steps": [
 					{
 						"id": "welcome",
 						"title": "Start with a Goal, Not Just a Prompt",
-						"description": "Tell Cline what you want to achieve. It plans, asks, and then codes, like a true partner.",
+						"description": "Tell Agent Tab what you want to achieve. It plans, asks, and then codes, like a true partner.",
 						"media": {
 							"markdown": "walkthrough/step1.md"
 						}
 					},
 					{
 						"id": "learn",
-						"title": "Let Cline Learn Your Codebase",
-						"description": "Point Cline to your project. It builds understanding to make smart, context-aware changes.",
+						"title": "Let Agent Tab Learn Your Codebase",
+						"description": "Point Agent Tab to your project. It builds understanding to make smart, context-aware changes.",
 						"media": {
 							"markdown": "walkthrough/step2.md"
 						}
@@ -85,7 +83,7 @@
 					{
 						"id": "advanced-features",
 						"title": "Always Use the Best AI Models",
-						"description": "Cline empowers you with State-of-the-Art AI, connecting to top models (Anthropic, Gemini, OpenAI & more).",
+						"description": "Agent Tab empowers you with State-of-the-Art AI, connecting to top models (Anthropic, Gemini, OpenAI & more).",
 						"media": {
 							"markdown": "walkthrough/step3.md"
 						}
@@ -101,7 +99,7 @@
 					{
 						"id": "getting-started",
 						"title": "You're Always in Control",
-						"description": "Review Cline's plans and diffs. Approve changes before they happen. No surprises.",
+						"description": "Review Agent Tab's plans and diffs. Approve changes before they happen. No surprises.",
 						"media": {
 							"markdown": "walkthrough/step5.md"
 						},
@@ -116,7 +114,7 @@
 			"activitybar": [
 				{
 					"id": "claude-dev-ActivityBar",
-					"title": "Cline",
+					"title": "Agent Tab",
 					"icon": "assets/icons/icon.svg"
 				}
 			]
@@ -160,90 +158,90 @@
 			{
 				"command": "cline.dev.createTestTasks",
 				"title": "Create Test Tasks",
-				"category": "Cline",
+				"category": "Agent Tab",
 				"when": "cline.isDevMode"
 			},
 			{
 				"command": "cline.dev.expireMcpOAuthTokens",
 				"title": "Expire MCP OAuth Tokens (for testing)",
-				"category": "Cline",
+				"category": "Agent Tab",
 				"when": "cline.isDevMode"
 			},
 			{
 				"command": "cline.addToChat",
-				"title": "Add to Cline",
-				"category": "Cline"
+				"title": "Add to Agent Tab",
+				"category": "Agent Tab"
 			},
 			{
 				"command": "cline.addTerminalOutputToChat",
-				"title": "Add to Cline",
-				"category": "Cline"
+				"title": "Add to Agent Tab",
+				"category": "Agent Tab"
 			},
 			{
 				"command": "cline.focusChatInput",
 				"title": "Jump to Chat Input",
-				"category": "Cline"
+				"category": "Agent Tab"
 			},
 			{
 				"command": "cline.generateGitCommitMessage",
-				"title": "Generate Commit Message with Cline",
-				"category": "Cline",
+				"title": "Generate Commit Message with Agent Tab",
+				"category": "Agent Tab",
 				"icon": "$(cline-icon)"
 			},
 			{
 				"command": "cline.abortGitCommitMessage",
-				"title": "Generate Commit Message with Cline - Stop",
-				"category": "Cline",
+				"title": "Generate Commit Message with Agent Tab - Stop",
+				"category": "Agent Tab",
 				"icon": "$(debug-stop)"
 			},
 			{
 				"command": "cline.explainCode",
-				"title": "Explain with Cline",
-				"category": "Cline"
+				"title": "Explain with Agent Tab",
+				"category": "Agent Tab"
 			},
 			{
 				"command": "cline.improveCode",
-				"title": "Improve with Cline",
-				"category": "Cline"
+				"title": "Improve with Agent Tab",
+				"category": "Agent Tab"
 			},
 			{
 				"command": "cline.jupyterGenerateCell",
-				"title": "Generate Jupyter Cell with Cline",
-				"category": "Cline",
+				"title": "Generate Jupyter Cell with Agent Tab",
+				"category": "Agent Tab",
 				"icon": "$(sparkle)"
 			},
 			{
 				"command": "cline.jupyterExplainCell",
-				"title": "Explain Jupyter Cell with Cline",
-				"category": "Cline",
+				"title": "Explain Jupyter Cell with Agent Tab",
+				"category": "Agent Tab",
 				"icon": "$(question)"
 			},
 			{
 				"command": "cline.jupyterImproveCell",
-				"title": "Improve Jupyter Cell with Cline",
-				"category": "Cline",
+				"title": "Improve Jupyter Cell with Agent Tab",
+				"category": "Agent Tab",
 				"icon": "$(lightbulb)"
 			},
 			{
 				"command": "cline.openWalkthrough",
 				"title": "Open Walkthrough",
-				"category": "Cline"
+				"category": "Agent Tab"
 			},
 			{
 				"command": "cline.reconstructTaskHistory",
 				"title": "Reconstruct Task History",
-				"category": "Cline"
+				"category": "Agent Tab"
 			},
 			{
 				"command": "cline.reviewComment.reply",
 				"title": "Reply",
-				"category": "Cline",
+				"category": "Agent Tab",
 				"enablement": "!commentIsEmpty"
 			},
 			{
 				"command": "cline.reviewComment.addToChat",
-				"title": "Add to Cline Chat",
-				"category": "Cline",
+				"title": "Add to Agent Tab Chat",
+				"category": "Agent Tab",
 				"icon": "$(link-external)"
 			}
 		],
@@ -376,7 +374,7 @@
 			]
 		},
 		"configuration": {
-			"title": "Cline",
+			"title": "Agent Tab",
 			"properties": {}
 		}
 	},
@@ -647,5 +645,8 @@
 		],
 		"all": true,
 		"exclude-after-remap": true
+	},
+	"bugs": {
+		"url": "https://github.com/srikar0805/agent-tab-extension/issues"
 	}
 }
