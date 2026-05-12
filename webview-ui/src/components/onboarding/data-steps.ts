@@ -12,11 +12,11 @@ type UserTypeSelection = {
 
 export const STEP_CONFIG = {
 	0: {
-		title: "How will you use Cline?",
-		description: "Select an option below to get started.",
+		title: "How will you use Agent Tab?",
+		description: "Pick an option to get started. Agent Tab is cost-aware AI coding built on Cline.",
 		buttons: [
 			{ text: "Continue", action: "next", variant: "default" },
-			{ text: "Login to Cline", action: "signin", variant: "secondary" },
+			{ text: "Sign in with Cline", action: "signin", variant: "secondary" },
 		],
 	},
 	[NEW_USER_TYPE.FREE]: {
@@ -50,5 +50,5 @@ export const STEP_CONFIG = {
 export const USER_TYPE_SELECTIONS: UserTypeSelection[] = [
 	{ title: "Absolutely Free", description: "Get started at no cost", type: NEW_USER_TYPE.FREE },
 	{ title: "Frontier Model", description: "Claude, GPT Codex, Gemini, etc.", type: NEW_USER_TYPE.POWER },
-	{ title: "Bring my own API key", description: "Use Cline with your provider of choice", type: NEW_USER_TYPE.BYOK },
+	{ title: "Bring my own API key", description: "Use Agent Tab with your provider of choice", type: NEW_USER_TYPE.BYOK },
 ]
