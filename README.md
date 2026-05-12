@@ -39,12 +39,13 @@ Prereqs: Node 20+, VS Code 1.84+.
 ```bash
 git clone https://github.com/srikar0805/agent-tab-extension.git
 cd agent-tab-extension
-npm install
+npm install           # installs root + webview-ui deps (via postinstall)
 npm run protos        # generate protobuf bindings
-npm run compile       # build extension + webview
 ```
 
-Then open the folder in VS Code and press **F5** to launch an Extension Development Host.
+Then open the folder in VS Code and press **F5** — the launch config starts the extension-host watch, the webview dev server, and an Extension Development Host window in one go.
+
+Webview UI lives in `webview-ui/` as a separate package (it's intentionally not in the root npm workspaces — keeps the webview build isolated from the extension host's TypeScript graph). The `postinstall` script auto-runs `npm install` inside it so a single `npm install` at the root is enough for a fresh clone.
 
 ## Relationship to Cline
 
