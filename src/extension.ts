@@ -57,6 +57,17 @@ import { SharedUriHandler, TASK_URI_PATH } from "./services/uri/SharedUriHandler
 import { ShowMessageType } from "./shared/proto/host/window"
 import { fileExistsAtPath } from "./utils/fs"
 
+// Defuse process.exit() — winston (pulled in transitively by @sap-ai-sdk →
+// @sap-cloud-sdk/util) registers a global uncaughtException handler that calls
+// process.exit(1). That would kill the entire extension host, including
+// unrelated extensions. VS Code already blocks the actual exit but emits a
+// noisy stack trace; this no-op makes unrelated upstream errors (e.g.
+// Copilot's) stop surfacing as scary log lines under our name.
+// We stash the original on globalThis so the standalone CLI bundle, which
+// legitimately needs to exit, can still reach it.
+;(globalThis as unknown as { __agentTabOriginalProcessExit?: typeof process.exit }).__agentTabOriginalProcessExit = process.exit
+process.exit = (() => undefined as never) as typeof process.exit
+
 // This method is called when the VS Code extension is activated.
 // NOTE: This is VS Code specific - services that should be registered
 // for all-platform should be registered in common.ts.
